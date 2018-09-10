@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row">
-    <div id="left">
+    <!-- legacy id labeling, not changed due to affecting tests -->
+    <div class="col-md-6 offset-md-3" id="left">
       <div *ngIf='errMsg' class="alert alert-danger">
         {{errMsg}}
       </div>
       <div *ngIf='succMsg' class="alert alert-success">
         {{succMsg}}
       </div>
-      <h3>Your Information</h3>
+      <br><h3>Your Information</h3><br>
       <div class="table-responsive info">
         <table class="table table-hover table-bordered">
           <tbody>
@@ -55,27 +56,26 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-6 offset-md-3">
       <button type="button" class="btn btn-primary" (click)="toggleForm()">Update Your Info</button>
 
       <div class="container" *ngIf="formOpen" class="toggledContainer" style="padding: 10px">
         <form ng-form="changeName">
           <table>
-          <tr>
-            <td style="padding: 5px"><label for="firstname">First Name:</label></td>
-            <td style="padding: 5px"><input type="text" [(ngModel)]='newFirstName' name="newFirstName"></td>
-          </tr>
-          <tr>
-            <td style="padding: 5px"><label for="lastname">Last Name:</label></td>
-            <td style="padding: 5px"><input type="text" [(ngModel)]='newLastName' name="newLastName"></td>
-          </tr>
-          <tr>  
-            <td style="padding: 10px"><input type="button" class="btn btn-primary" value="Save" (click)='updateInfo()'></td>
-        </tr>  
-        </table>
+            <tr>
+              <td style="padding: 5px"><label for="firstname">First Name:</label></td>
+              <td style="padding: 5px"><input type="text" [(ngModel)]='newFirstName' name="newFirstName"></td>
+            </tr>
+            <tr>
+              <td style="padding: 5px"><label for="lastname">Last Name:</label></td>
+              <td style="padding: 5px"><input type="text" [(ngModel)]='newLastName' name="newLastName"></td>
+            </tr>
+          </table>
+          <div style="padding: 10px; align-content: center; text-align: center">
+            <input type="button" class="btn btn-primary" value="Save" (click)='updateInfo()'>
+          </div>
         </form>
       </div>
     </div>
-    <div class="col-sm-6"></div>
   </div>
 </div>
